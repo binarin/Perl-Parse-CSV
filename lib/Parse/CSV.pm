@@ -360,6 +360,7 @@ sub getline {
 
 	my $row = $self->{csv_xs}->getline( $self->{handle} );
 	$self->{row}++ if defined $row;
+	$self->{errstr} = "".$self->{csv_xs}->error_diag unless defined $row;
 	$self->{savedrow} = $row;
 	return $row;
 }
